@@ -5,11 +5,17 @@ import Bucket from './Bucket';
 function BucketList() {
   const [bucket, setBucket] = useState([]);
 
+ 
+
   // Function to add a bucket list item
   const addBucketItem = (item) => {
 
-    // TODO: Write logic to add the new bucket item to the bucket state variable
-    
+    // TODO: Write logic to add the new bucket item to the bucket state variable\
+    // create new bucket and push item to the array
+    const newBucket = [...bucket]
+    // set new variable in the array with push
+    newBucket.push(item)
+   setBucket(newBucket);
   };
 
   // Function to mark bucket list item as complete
@@ -18,7 +24,10 @@ function BucketList() {
     let updatedBucket = bucket.map((item) => {
       
       // TODO: Write logic that marks an item as complete or incomplete when invoked
-
+      if (item.id === id)
+      {
+        item.isComplete = true
+      }
     });
 
     setBucket(updatedBucket);
